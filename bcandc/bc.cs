@@ -30,16 +30,15 @@ namespace bcandc.Commands
 
 			if (arguments.Count == 0)
 			{
-				response = "No text ";
+				response = "没有文字";
 				return false;
 			}
 			foreach (string txt in arguments)
 		    {
 					text = text + ""+ txt;
 			}
-			Map.Broadcast(7 , $"[全体]<color={player.Role.Team.GetColor()}>[{player.Nickname}]</color>: {text}", global::Broadcast.BroadcastFlags.Normal);
-			
-			response = "Sent successfully";
+			Map.Broadcast((ushort)Plugin.Ins.Config.Bctime, Plugin.Ins.Config.BcText.Replace("tcolor", player.Role.Team.GetColor()).Replace("name", player.Nickname).Replace("mes",text));
+			response = "发送成功！";
 			return true;
 		}
 	}
