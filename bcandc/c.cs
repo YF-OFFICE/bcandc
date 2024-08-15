@@ -30,7 +30,7 @@ namespace bcandc.Commands
 
 			if (arguments.Count == 0)
 			{
-				response = "No text";
+				response = "没有文本";
 				return false;
 			}
 			foreach (string txt in arguments)
@@ -42,14 +42,14 @@ namespace bcandc.Commands
 				if (player1.Role.Team == player.Role.Team)
 				{
 
-					player1.Broadcast(7, $"[Team]<color={player.Role.Team.GetColor()}>[{player.Role.Type.GetRolename()}]</color>{player.Nickname}: {text}");
+					player1.Broadcast((ushort)Plugin.Ins.Config.ctime, Plugin.Ins.Config.cText.Replace("tcolor", player.Role.Team.GetColor()).Replace("rname", player.Role.Type.GetRolename()).Replace("name", player.Nickname).Replace("mes",text)) ;
 
 				}
 			
 			}
 			
 
-			response = "Sent successfully";
+			response = "发送成功";
 			return true;
 		}
 	}

@@ -9,21 +9,21 @@ namespace bcandc
 {
     public class Plugin : Plugin<Config>
     {
-        public override string Name { get; } = "bcandc ";
-        public override string Author { get; } = "tyIUc";
-        public override Version Version { get; } = new Version(1, 0, 0);
-
-        public override Version RequiredExiledVersion { get; } = new Version(1, 0, 0);
+        public override string Name { get; } = "bcandc";
+        public override string Author { get; } = "BigFish";
+        public override Version Version { get; } = new Version(1, 1, 0);
+		public static Plugin Ins { get; set; }
 		public override void OnEnabled()
 		{
-			Log.Debug("bcandc PLUGIN login Enabled");
+			Ins = this;
+			Log.Debug("bcandc 插件加载成功");
 			base.OnEnabled();
 		}
 
 		public override void OnDisabled()
 		{
-
-			Log.Debug("bcandc PLUGIN Disabled");
+			Ins = null;
+			Log.Debug("bcandc插件关闭");
 			base.OnDisabled();
 		}
 	}
