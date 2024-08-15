@@ -1,4 +1,4 @@
-# bcandc---EXILED
+# bcandc---EXILED 如有bug请在Iss中提出
  A chat plugin About exiled SCPSL
 ```
         [Description("插件是否打开")]
